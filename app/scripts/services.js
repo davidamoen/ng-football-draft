@@ -1,4 +1,9 @@
-var express = require('express');
-var app = express();
+var dataServices = angular.module('dataServices', ['ngResource']);
 
-console.log(app);
+dataServices.factory('data', ['$resource', 
+	function($resource){
+		return $resource('data/nfl_qbs.json', {},{
+			players: {method: 'GET', params: {}, isArray: true}
+		});
+	}
+])
