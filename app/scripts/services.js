@@ -6,4 +6,20 @@ dataServices.factory('data', ['$resource',
 			players: {method: 'GET', params: {}, isArray: true}
 		});
 	}
-])
+]);
+
+var draftServices = angular.module('draftServices',[]);
+draftServices.factory('draft', function(){
+	function isStarted() {
+		return true;
+	}
+
+	function addTeam (teamName) {
+		console.log(teamName);
+	}
+
+	return {
+		IsStarted: isStarted,
+		AddTeam: addTeam
+	}
+});

@@ -12,17 +12,12 @@
 <div class="jumbotron">
   <h2>Welcome to Dave's Fantasy Football Draft!</h2>
 
-  <p>{{message}}</p>
+<p>{{message}}</p>
 
-  <ul>
-    <li ng-repeat="qb in players">
-      {{qb.Name}}: {{qb.QBRat}}
-    </li>
-  </ul>
-
-  <!--
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-  -->
+  <div ng-if="draftStarted">
+    <p><input ng-model="teamName" type="text" class="form-control" name="teamName" placeholder="Enter your team name" /></p>
+    <p><a class="btn btn-lg btn-success" ng-click="Add(teamName)" ng-href="#">Start!<span class="glyphicon"></span></a></p>
+  </div>
 </div>
 
 <!--

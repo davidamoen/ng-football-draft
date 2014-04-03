@@ -7,7 +7,8 @@ angular
     'ngSanitize',
     'ngRoute',
     'draftControllers',
-    'dataServices'    
+    'draftServices',
+    'dataServices'
   ])
   .config(function ($routeProvider) {
     $routeProvider
