@@ -5,7 +5,9 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'draftControllers',
+    'dataServices'    
   ])
   .config(function ($routeProvider) {
     $routeProvider
