@@ -14,12 +14,28 @@ draftServices.factory('draft', function(){
 		return true;
 	}
 
-	function addTeam (teamName) {
-		console.log(teamName);
+	//function addTeam () {
+//		console.log($scope.teamName);
+	//}
+
+	return {
+		IsStarted: isStarted
+		//AddTeam: addTeam
+	}
+});
+
+var teamServices = angular.module('teamServices', []);
+teamServices.factory('team', function(){
+	var _teamName = '';
+	function getTeamName(){
+		return _teamName;
+	};
+	function setTeamName(teamName) {
+		_teamName = teamName;
 	}
 
 	return {
-		IsStarted: isStarted,
-		AddTeam: addTeam
+		TeamName: getTeamName,
+		SetTeamName: setTeamName
 	}
 });

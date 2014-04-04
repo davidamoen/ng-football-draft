@@ -1,9 +1,9 @@
 'use strict';
 
-var draftControllers = angular.module('draftControllers', []);
+var mainControllers = angular.module('mainControllers', []);
 
-draftControllers.controller('MainCtrl', ['$scope', 'data', 'draft',
-	function ($scope, data, draft) {
+mainControllers.controller('MainCtrl', ['$scope', '$rootScope', 'data', 'draft','$location', 'team',
+	function ($scope, $rootScope, data, draft, $location, team) {
 
 		$scope.draftStarted = draft.IsStarted();
 
@@ -14,8 +14,9 @@ draftControllers.controller('MainCtrl', ['$scope', 'data', 'draft',
 			$scope.message = 'Please be patient while we get the draft started...'
 		}
   		
-		$scope.Add = draft.AddTeam;
-
-  		// $scope.players = data.players();
+		$scope.Add = function(teamName) {
+			team.SetTeamName(teamName);
+			$location.path('/draft');
+		}
   	}]
 );
