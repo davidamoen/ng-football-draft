@@ -8,21 +8,23 @@ dataServices.factory('data', ['$resource',
 	}
 ]);
 
-var draftServices = angular.module('draftServices',[]);
-draftServices.factory('draft', function(){
-	function isStarted() {
-		return true;
-	}
+var draftServices = angular.module('draftServices', ['ngResource']);
+dataServices.factory('draft', ['$http',
+	function($http) {
+		var draftStarted = function(callback) {
+			$http.get('http://localhost:8080/isstarted').success(
+				function(data, status, headers, config) {
+					callback(data);
+				}
+			);
+		}
 
-	//function addTeam () {
-//		console.log($scope.teamName);
-	//}
+		return {
+			DraftStarted: draftStarted
+		}
 
-	return {
-		IsStarted: isStarted
-		//AddTeam: addTeam
-	}
-});
+	}]
+);
 
 var teamServices = angular.module('teamServices', []);
 teamServices.factory('team', function(){
