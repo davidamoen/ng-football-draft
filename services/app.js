@@ -30,7 +30,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/participants', services.participants);
+app.get('/teams', services.teams);
 app.get('/isstarted', services.isStarted);
 
 http.createServer(app).listen(app.get('port'), function(){

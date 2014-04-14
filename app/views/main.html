@@ -12,12 +12,18 @@
 <div class="jumbotron">
   <h2>Welcome to Dave's Fantasy Football Draft!</h2>
 
-<p>{{message}}</p>
+  <p>{{message}}</p>
 
   <div ng-if="draftStarted">
     <p><input ng-model="teamName" type="text" class="form-control" name="teamName" placeholder="Enter your team name" /></p>
     <p><a class="btn btn-lg btn-success" ng-click="Add(teamName)">Start!<span class="glyphicon"></span></a></p>
   </div>
+</div>
+
+<div class="sidebar">
+  <ul ng-repeat="team in teams">
+    <li>{{team.name}}</li>
+  </ul>
 </div>
 
 <!--

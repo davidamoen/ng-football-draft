@@ -45,6 +45,7 @@ body {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+    clear:both;
 }
 
 .container-narrow > hr {
@@ -55,11 +56,22 @@ body {
 .jumbotron {
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
+    width: 55%;
+    float:left;
 }
 
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
+}
+
+.sidebar {
+    width: 40%;
+    padding: 20px;
+    float:left;
+    margin:0 0 0 20px;
+    border-radius: 6px;
+    background-color: #eeeeee;
 }
 
 /* Supporting marketing content */
