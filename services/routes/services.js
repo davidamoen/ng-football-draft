@@ -10,6 +10,7 @@ var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db(dbName, server);
 
 var appSettings = db.collection("appSettings");
+var teams = db.collection("teams");
 
 db.open(function(err, db) {
     if(!err) {
@@ -25,8 +26,12 @@ exports.isStarted = function(req, res) {
     });    	
 }
 
-exports.participants = function(req, res){
-  res.send([{name:'wine1'}, {name:'wine2'}]);
+exports.teams = function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', "*");
+    teams.find().toArray(function(err, items) {
+        res.send({teams: items});
+    });
 };
 
 exports.addParticipant = function(req, res) {

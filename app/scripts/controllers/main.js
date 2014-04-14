@@ -8,9 +8,11 @@ mainControllers.controller('MainCtrl', ['$scope', '$rootScope', 'data', 'draft',
 		draft.DraftStarted(
 			function(data) {
 				$scope.draftStarted = data.started;
-
 				if (data.started) {
 					$scope.message = 'The Draft has begun!  Please enter your team name and click Start';
+					draft.Teams(function(data){
+						$scope.teams = data.teams;
+					});
 				}
 				else {
 					$scope.message = 'Please be patient while we get the draft started...'

@@ -19,8 +19,17 @@ dataServices.factory('draft', ['$http',
 			);
 		}
 
+		var currentTeams = function(callback) {
+			$http.get('http://localhost:8080/teams').success(
+				function(data, status, headers, config) {
+					callback(data);
+				}
+			);
+		}
+
 		return {
-			DraftStarted: draftStarted
+			DraftStarted: draftStarted,
+			Teams: currentTeams
 		}
 
 	}]
